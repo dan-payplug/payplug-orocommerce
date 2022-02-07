@@ -22,10 +22,8 @@ jobs:
         with:
           project: SPD
           issuetype: Task
-          #summary: "${{ github.event.issue.title }} #${{ github.event.issue.number }}"
-          #description: "${{ github.event.issue.body }}\n\nCreated from GitHub Action"
-          summary: Github issue for ${{ github.repository }}
-          description: Github issue
+          summary: "${{ github.event.issue.title }} #${{ github.event.issue.number }}"
+          description: "${{ github.event.issue.body }}\n\nCreated from GitHub Action"
           #fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
 
       - name: Log
