@@ -26,7 +26,7 @@ jobs:
             Build completed for ${{ github.repository }}
           description: |
             Compare branch
-            fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
+            extraFields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
 
       - name: Log created JIRA issue
         run: echo "Issue ${{ secrets.JIRA_BASE_URL }} was created"
