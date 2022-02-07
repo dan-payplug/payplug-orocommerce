@@ -24,7 +24,7 @@ jobs:
           issuetype: Technical Support
           summary: Github issue for ${{ github.repository }}
           description: Github issue
-          extraFields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
+          fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
 
       - name: Log created JIRA issue
         run: echo "Issue ${{ secrets.JIRA_BASE_URL }} was created"
