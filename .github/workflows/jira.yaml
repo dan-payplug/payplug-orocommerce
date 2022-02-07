@@ -20,8 +20,8 @@ jobs:
         id: create
         uses: atlassian/gajira-create@master
         with:
-          project: SPD
-          issuetype: Task
+          project: SMP
+          issuetype: Technical Support
           summary: "${{ github.event.issue.title }} #${{ github.event.issue.number }}"
           description: "${{ github.event.issue.body }}\n\nCreated from GitHub Action"
           fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
