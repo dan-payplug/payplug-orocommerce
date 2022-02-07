@@ -20,11 +20,12 @@ jobs:
         id: create
         uses: atlassian/gajira-create@master
         with:
-          project: SMP
-          issuetype: Technical Support
+          project: SPD
+          issuetype: Task
           summary: "${{ github.event.issue.title }} #${{ github.event.issue.number }}"
           description: "${{ github.event.issue.body }}\n\nCreated from GitHub Action"
-          fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
+          # WORK FOR SMP, a voir comment on met des champs obligatoires en non renseignés :p !
+          #fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
 
       - name: Log
         run: echo "Created issue ${{ steps.create.outputs.issue }}"
