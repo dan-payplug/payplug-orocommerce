@@ -6,7 +6,7 @@ on:
 
 jobs:
   jira:
-    name: Create Jira issue
+    name: Create Jira issues
     runs-on: ubuntu-latest
     steps:
       - name: Jira Login
