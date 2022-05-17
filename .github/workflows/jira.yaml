@@ -1,0 +1,31 @@
+name: CREATE JIRA ISSUE
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  jira:
+    name: Create Jira issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Jira Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+      - name: Create
+        id: create
+        uses: atlassian/gajira-create@master
+        with:
+          project: SPD
+          issuetype: Task
+          summary: "${{ github.event.issue.title }} #${{ github.event.issue.number }}"
+          description: "${{ github.event.issue.body }}\n\nCreated from GitHub Action"
+          # WORK FOR SMP, a voir comment on met des champs obligatoires en non renseignés :p !
+          #fields: '{"customfield_10105": "https://www.toto.fr","customfield_10106": "12345","customfield_10108": "3.3.3"}'
+
+      - name: Log
+        run: echo "Created issue ${{ steps.create.outputs.issue }}"
